@@ -7,6 +7,4 @@ using System.Threading.Tasks;
 public interface ISelectUnit
 {
     bool IsSelect { get; set; }
-    void Select();
-    void UnSelect();
 }

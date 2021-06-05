@@ -9,7 +9,6 @@ public class Unit : MonoBehaviour
     public IMove moveUnit;
     public ISelectUnit selectUnit;
     
-
     void Start()
     {
         
@@ -23,8 +22,6 @@ public class Unit : MonoBehaviour
 
     protected void Execute()
     {
-        if (listComponents == null) return;
-
         foreach(var component in listComponents)
         {
             component.Execute();

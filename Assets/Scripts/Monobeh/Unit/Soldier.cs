@@ -8,13 +8,13 @@ public class Soldier : Unit
 {
     private void Start()
     {
-        Initialzie();
+        Initialize();
     }
 
-    private void Initialzie()
+    private void Initialize()
     {
         moveUnit = new MoveUnit(unitData.property.Speed, unitData.property.Heigth, transform);
-        selectUnit = new SelectUnit();
+        selectUnit = GetComponentInChildren<ISelectUnit>();
         listComponents.Add(moveUnit);
     }
 

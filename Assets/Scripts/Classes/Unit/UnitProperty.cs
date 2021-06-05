@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 public class UnitProperty
 {
     public float HP;
-    public float Speed;
+    public float Speed = 10;
     public float HPMax;
-    public float Heigth;
+    public float Heigth = 1;
 }

@@ -71,7 +71,11 @@
     <Compile Include="Assets\Scripts\Classes\Unit\MoveUnit.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\SelectUnit.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\UnitProperty.cs" />
+    <Compile Include="Assets\Scripts\InputController\InfoClick.cs" />
+    <Compile Include="Assets\Scripts\InputController\InputClick.cs" />
+    <Compile Include="Assets\Scripts\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Bootstrap.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\SelectUnitPartycle.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Soldier.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\Unit\UnitData.cs" />
