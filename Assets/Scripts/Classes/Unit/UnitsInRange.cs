@@ -53,7 +53,7 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
         if(obj != null)
         {
             AddObject(obj);
-            Debug.Log("Add" + other.name);
+            Debug.LogWarning("Add" + other.name);
         }        
     }   
 
@@ -64,7 +64,7 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
         if (obj != null)
         {
             RemoveObject(obj);
-            Debug.Log("Add" + other.name);
+            Debug.LogWarning("Remove" + other.name);
         }
     }
 } 

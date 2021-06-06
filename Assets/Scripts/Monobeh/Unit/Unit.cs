@@ -25,7 +25,7 @@ public class Unit : MonoBehaviour
     {
         var selectPartycle = Instantiate(unitData.prefabSelectCircle);
         selectPartycle.transform.parent = thisGameObject.transform;
-        selectPartycle.transform.position = new Vector3(0, 0.5f, 0);
+        selectPartycle.transform.localPosition = new Vector3(0, 0.5f, 0);
 
         selectUnit = selectPartycle.GetComponent<ISelectUnit>();
     }
@@ -34,6 +34,7 @@ public class Unit : MonoBehaviour
     {
         var go = new GameObject("UnitInRange");
         go.transform.parent = thisGameObject.transform;
+        go.transform.localPosition = Vector3.zero;
         unitsInRange = go.AddComponent<UnitsInRange>();
         unitsInRange.Initialize(5);
     }
