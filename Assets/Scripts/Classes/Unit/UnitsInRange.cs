@@ -9,6 +9,11 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
 {
     private SphereCollider collider;
     private float range;
+    public event Action<Unit> AddUnit;
+    public event Action<Unit> RemoveUnit;
+    private TeamUnit filterNeedTeamUnit;
+    public List<Unit> ListUnits { get; private set; } = new List<Unit>();
+
     public float Range 
     { 
         get => range; 
@@ -19,20 +24,23 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
         }
     }
 
-    public List<Unit> ListUnits { get; private set; }
+    
 
     public void AddObject(Unit unit)
     {
         ListUnits.Add(unit);
+        AddUnit?.Invoke(unit);
     }
 
     public void RemoveObject(Unit unit)
     {
         ListUnits.Remove(unit);
+        RemoveUnit?.Invoke(unit);
     }
 
-    public void Initialize(float range)
-    {        
+    public void Initialize(float range, TeamUnit filterNeedTeamUnit)
+    {
+        this.filterNeedTeamUnit = filterNeedTeamUnit;
         ListUnits = new List<Unit>();
         collider = gameObject.AddComponent<SphereCollider>();
         collider.isTrigger = true;
@@ -48,12 +56,12 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
 
     private void OnTriggerEnter(Collider other)
     {
-        var obj = other.gameObject.GetComponent<Unit>();
+        var unit = other.gameObject.GetComponent<Unit>();
         
-        if(obj != null)
+        if(unit != null && unit.Team == filterNeedTeamUnit)
         {
-            AddObject(obj);
-            Debug.LogWarning("Add" + other.name);
+            AddObject(unit);
+            Debug.Log("Add" + other.name);
         }        
     }   
 
@@ -64,7 +72,7 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
         if (obj != null)
         {
             RemoveObject(obj);
-            Debug.LogWarning("Remove" + other.name);
+            Debug.Log("Remove" + other.name);
         }
     }
 } 

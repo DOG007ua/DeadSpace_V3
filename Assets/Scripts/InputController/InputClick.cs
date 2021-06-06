@@ -39,9 +39,9 @@ public class InputClick : MonoBehaviour
         var position = PositionClick(hit);
         var go = GameObjectClick(hit);
         var info = new InfoClick(position, go, go.GetComponent<Unit>());
-        Debug.Log($"Position: {info.PositionClick}");
-        Debug.Log($"GameObject: {info.GameObjectClick}");
-        Debug.Log($"Unit: {info.Unit}");
+        //Debug.Log($"Position: {info.PositionClick}");
+        //Debug.Log($"GameObject: {info.GameObjectClick}");
+        //Debug.Log($"Unit: {info.Unit}");
         return info;
     }
 

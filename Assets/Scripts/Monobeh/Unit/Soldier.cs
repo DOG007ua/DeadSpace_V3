@@ -14,6 +14,8 @@ public class Soldier : Unit
     private void Initialize()
     {
         base.Initialize(this.gameObject);
+        Team = TeamUnit.Blue;
+        unitsInRange.Initialize(3, TeamUnit.Blue);
         moveUnit = new MoveUnit(unitData.property.Speed, unitData.property.Heigth, transform);
         listComponents.Add(moveUnit);
     }

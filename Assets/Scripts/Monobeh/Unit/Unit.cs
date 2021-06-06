@@ -9,6 +9,8 @@ public class Unit : MonoBehaviour
     public IMove moveUnit;
     public ISelectUnit selectUnit;
     public IUnitsInRange unitsInRange;
+    public IControlerTarget controllerTarget;
+    public TeamUnit Team { get; protected set; }
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class Unit : MonoBehaviour
     {
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
+        CreateControllerTarget(thisGameObject);
     }
 
     private void CreateSelectUnit(GameObject thisGameObject)
@@ -35,8 +38,12 @@ public class Unit : MonoBehaviour
         var go = new GameObject("UnitInRange");
         go.transform.parent = thisGameObject.transform;
         go.transform.localPosition = Vector3.zero;
-        unitsInRange = go.AddComponent<UnitsInRange>();
-        unitsInRange.Initialize(5);
+        unitsInRange = go.AddComponent<UnitsInRange>();        
+    }
+
+    private void CreateControllerTarget(GameObject thisGameObject)
+    {
+        controllerTarget = new SelectTargetInRange(unitsInRange, thisGameObject.transform);
     }
 
     // Update is called once per frame
