@@ -7,7 +7,7 @@ using UnityEngine;
 
 class UnitsInRange : MonoBehaviour, IUnitsInRange
 {
-    private SphereCollider collider;
+    private SphereCollider colliderSphere;
     private float range;
     public event Action<Unit> AddUnit;
     public event Action<Unit> RemoveUnit;
@@ -20,7 +20,7 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
         private set
         {
             range = value;
-            collider.radius = value;
+            colliderSphere.radius = value;
         }
     }
 
@@ -42,8 +42,8 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
     {
         this.filterNeedTeamUnit = filterNeedTeamUnit;
         ListUnits = new List<Unit>();
-        collider = gameObject.AddComponent<SphereCollider>();
-        collider.isTrigger = true;
+        colliderSphere = gameObject.AddComponent<SphereCollider>();
+        colliderSphere.isTrigger = true;
         Range = range;
         this.gameObject.layer = 8;
     }    

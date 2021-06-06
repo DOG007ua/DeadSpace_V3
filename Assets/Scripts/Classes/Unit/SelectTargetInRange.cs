@@ -20,8 +20,6 @@ class SelectTargetInRange : IControlerTarget
             {
                 FindNewUnit();
             }
-            if(Target == null) Debug.LogWarning($"Target NULL, Unit: {transformUnit.name}");
-            else Debug.LogWarning($"Target: {Target.transform.name}, Unit: {transformUnit.name}");
         }
     }
     private IUnitsInRange unitsInRange;
@@ -63,7 +61,6 @@ class SelectTargetInRange : IControlerTarget
     private void FindNewUnit()
     {
         var minDistance = float.MaxValue;
-        int posMin = 0;
         for(int i = 0; i < unitsInRange.ListUnits.Count; i++)
         {
             var dist = Vector3.Distance(transformUnit.position, unitsInRange.ListUnits[i].transform.position);

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     private IInputController inputController;
-    [SerializeField]private InputClick inputClick;
+    public InputClick inputClick;
 
     void Start()
     {
