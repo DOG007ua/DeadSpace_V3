@@ -35,8 +35,9 @@ public class InputClick : MonoBehaviour
 
     private InfoClick Click()
     {
-        var position = PositionClick();
-        var go = GameObjectClick();
+        var hit = GetHit();
+        var position = PositionClick(hit);
+        var go = GameObjectClick(hit);
         var info = new InfoClick(position, go, go.GetComponent<Unit>());
         Debug.Log($"Position: {info.PositionClick}");
         Debug.Log($"GameObject: {info.GameObjectClick}");
@@ -44,28 +45,29 @@ public class InputClick : MonoBehaviour
         return info;
     }
 
-    private Vector3 PositionClick()
+    private Vector3 PositionClick(RaycastHit hit)
+    {
+        return hit.point;
+    }
+
+    private RaycastHit GetHit()
     {
         Ray ray = Camera.allCameras[0].ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Vector3 position = Vector3.zero;
 
-        //int layerMask = 1 << 9;
-        //layerMask = ~layerMask;
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
-            position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            
         }
-        return position;
+        return hit;
     }
 
-    private GameObject GameObjectClick()
+    private GameObject GameObjectClick(RaycastHit hit)
     {
-        Ray ray = Camera.allCameras[0].ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit)) { }
         if (hit.transform.gameObject.tag == "Terrain") return null;
         return hit.transform.gameObject;
     }
