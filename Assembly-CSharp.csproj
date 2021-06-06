@@ -69,8 +69,8 @@
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\IMove.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\ISelectUnit.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\MoveUnit.cs" />
-    <Compile Include="Assets\Scripts\Classes\Unit\SelectUnit.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\UnitProperty.cs" />
+    <Compile Include="Assets\Scripts\InputController\IInputController.cs" />
     <Compile Include="Assets\Scripts\InputController\InfoClick.cs" />
     <Compile Include="Assets\Scripts\InputController\InputClick.cs" />
     <Compile Include="Assets\Scripts\InputController\InputController.cs" />

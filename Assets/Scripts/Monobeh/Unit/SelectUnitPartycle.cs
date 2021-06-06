@@ -14,11 +14,5 @@ public class SelectUnitPartycle : MonoBehaviour, ISelectUnit
         }
     }
     private bool isSelect;
-    private ParticleSystem particle;
-    
-    
-    void Start()
-    {
-        particle = GetComponent<ParticleSystem>();
-    }
+    [SerializeField]private ParticleSystem particle;    
 }

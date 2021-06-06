@@ -1,20 +1,33 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.InputController;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private IInputController inputController;
+    [SerializeField]private InputClick inputClick;
+
     void Start()
     {
-        Vector3 vec = new Vector3(1, 2, 3);
-        vec = vec.SetX(10);
-        transform.SetPositionX(10);
+        Initialized();
+        Subscription();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Initialized()
+    {
+        inputController = new InputController();
+    }
+
+    private void Subscription()
+    {
+        inputClick.EventClickLeft += inputController.ReactionLeftClick;
+        inputClick.EventClickRight += inputController.ReactionRightClick;
     }
 }

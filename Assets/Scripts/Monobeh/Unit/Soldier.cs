@@ -13,8 +13,8 @@ public class Soldier : Unit
 
     private void Initialize()
     {
+        base.Initialize(this.gameObject);
         moveUnit = new MoveUnit(unitData.property.Speed, unitData.property.Heigth, transform);
-        selectUnit = GetComponentInChildren<ISelectUnit>();
         listComponents.Add(moveUnit);
     }
 

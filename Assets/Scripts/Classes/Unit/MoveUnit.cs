@@ -34,6 +34,7 @@ public class MoveUnit : IMove
 
     public void MoveToPosition(Vector3 position)
     {
+        position = position.SetY(heigthUnit / 2.0f);
         LookAt(position);
         IsMove = true;
         PositionMove = position;
@@ -50,7 +51,7 @@ public class MoveUnit : IMove
         {
             Transform.position += Transform.forward * Speed * Time.deltaTime;
             var distance = Vector3.Distance(Transform.position, PositionMove);
-            if (distance < 0.1f)
+            if (distance < 0.15f)
             {
                 StopMove();
             }
