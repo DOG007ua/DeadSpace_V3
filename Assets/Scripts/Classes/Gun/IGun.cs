@@ -6,7 +6,10 @@ public interface IGun
 {
     InputPropertyGun Property { get; }
     bool IsCanShoot { get; }
+    bool IsReload { get; }
+    bool IsReloadAfterShoot { get; }
     void Reload();
-    void Shoot();
+    void Shoot(Vector3 positionShoot);
+    void Execute();
 
 }

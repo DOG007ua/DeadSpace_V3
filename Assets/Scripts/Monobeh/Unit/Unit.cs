@@ -59,4 +59,9 @@ public class Unit : MonoBehaviour
             component.Execute();
         }
     }
+
+    public void Damage(float damage)
+    {
+
+    }
 }
