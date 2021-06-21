@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Classes\Gun\Bullet.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\Gun.cs" />
+    <Compile Include="Assets\Scripts\Classes\Gun\Guns\Glock.cs" />
+    <Compile Include="Assets\Scripts\Classes\Gun\Guns\Pistols.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\IGun.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\PropertyGun.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\TypeAmmo.cs" />

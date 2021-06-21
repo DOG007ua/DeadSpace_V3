@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Input property gun", menuName = "Input property gun", order = 52)]
+[CreateAssetMenu(fileName = "Input property gun", menuName = "Data/Input property gun", order = 52)]
 public class InputPropertyGun : ScriptableObject
 {
     public TypeAmmo TypeAmmo;

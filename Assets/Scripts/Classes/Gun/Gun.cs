@@ -24,9 +24,8 @@ namespace Assets.Scripts.Classes.Gun
         protected int nowAmmoInShop;
         private Transform pointSpawnBullet;
 
-        public Gun(InputPropertyGun property, Transform gun)
+        public void Initialize(Transform gun)
         {
-            Property = property;
             FindSpawnPoint(gun);
         }
 

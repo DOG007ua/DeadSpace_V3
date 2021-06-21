@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Glock
+  m_EditorClassIdentifier: Assembly-CSharp::InputPropertyGun
+  TypeAmmo: 0
+  MaxAmmo: 20
+  TimeReload: 3
+  TimeBetweenShoot: 0.15
+  RangeShoot: 10
+  Dispersion: 0.1
+  Damage: 10
+  bullet: {fileID: 5813134973646567347, guid: 2c2b5f26f10625a40bd9edf3c7d2284e, type: 3}
