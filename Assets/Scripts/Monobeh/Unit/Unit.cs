@@ -7,11 +7,11 @@ public class Unit : MonoBehaviour
 {
     protected List<IComponent> listComponents = new List<IComponent>();
     [SerializeField] protected UnitData unitData;
-    private IMove moveUnit;
-    private ISelectUnit selectUnit;
-    private IUnitsInRange unitsInRange;
-    private IControlerTarget controllerTarget;
-    private IWeaponController weaponController;
+    protected IMove moveUnit;
+    protected ISelectUnit selectUnit;
+    protected IUnitsInRange unitsInRange;
+    protected IControlerTarget controllerTarget;
+    protected IWeaponController weaponController;
     public IUnitController UnitController;
     public TeamUnit Team { get; protected set; }
     public GameObject GameObject { get; private set; }
@@ -22,6 +22,7 @@ public class Unit : MonoBehaviour
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
         CreateControllerTarget(thisGameObject);
+        UnitController = new UnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget, weaponController);
     }
 
     private void CreateSelectUnit(GameObject thisGameObject)

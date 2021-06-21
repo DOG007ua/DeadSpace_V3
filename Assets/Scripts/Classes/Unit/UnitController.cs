@@ -7,14 +7,15 @@ using UnityEngine;
 
 class UnitController : IUnitController
 {
+    public Unit Target => controllerTarget.Target;
+    public Unit Unit { get; private set; }
+
     private IMove moveUnit;
     private ISelectUnit selectUnit;
     private IUnitsInRange unitsInRange;
     private IControlerTarget controllerTarget;
     private IWeaponController weaponController;
-
-    public Unit Target => controllerTarget.Target;
-    public Unit Unit { get; private set; }
+   
 
     public UnitController(Unit unit,  IMove moveUnit, ISelectUnit selectUnit, IUnitsInRange unitsInRange, IControlerTarget controllerTarget, IWeaponController weaponController)
     {
