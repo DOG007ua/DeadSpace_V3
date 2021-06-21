@@ -6,8 +6,7 @@ using UnityEngine;
 public class InputController : IInputController
 {
     private Unit selectedUnit;
-    private IMove moveUnit;
-    private ISelectUnit selectUnit;
+    private IUnitController unitController;
 
 
     public void ReactionLeftClick(InfoClick info)
@@ -29,24 +28,23 @@ public class InputController : IInputController
     private void SelectUnit(Unit unit)
     {
         if (unit == selectedUnit) return;
-        if(selectUnit != null) selectUnit.IsSelect = false;
+        unitController = unit.UnitController;
+        unitController.SelectUnit(false);
 
         selectedUnit = unit;
-        moveUnit = unit.moveUnit;
-        selectUnit = unit.selectUnit;
-        selectUnit.IsSelect = true;
+        unitController.SelectUnit(true);
     }
 
     private void MoveUnit(Vector3 position)
     {
-        if(selectUnit != null)
+        if(selectedUnit != null)
         {
-            moveUnit.MoveToPosition(position);
+            unitController.MoveToPosition(position);
         }
     }
 
     private void SetTarget(Unit unit)
     {
-
+        unitController.SetTarget(unit);
     }
 }

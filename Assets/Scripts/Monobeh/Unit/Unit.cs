@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Classes.Gun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,19 +7,18 @@ public class Unit : MonoBehaviour
 {
     protected List<IComponent> listComponents = new List<IComponent>();
     [SerializeField] protected UnitData unitData;
-    public IMove moveUnit;
-    public ISelectUnit selectUnit;
-    public IUnitsInRange unitsInRange;
-    public IControlerTarget controllerTarget;
+    private IMove moveUnit;
+    private ISelectUnit selectUnit;
+    private IUnitsInRange unitsInRange;
+    private IControlerTarget controllerTarget;
+    private IWeaponController weaponController;
+    public IUnitController UnitController;
     public TeamUnit Team { get; protected set; }
-
-    void Start()
-    {
-        
-    }
+    public GameObject GameObject { get; private set; }
 
     protected virtual void Initialize(GameObject thisGameObject)
     {
+        GameObject = this.gameObject;
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
         CreateControllerTarget(thisGameObject);

@@ -5,109 +5,106 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.Classes.Gun
+public abstract class Gun : MonoBehaviour, IGun
 {
-    public abstract class Gun : MonoBehaviour, IGun
-    {       
-        public InputPropertyGun Property { get; private set; }
-        public virtual bool IsCanShoot => 
-            !IsReload && 
-            !IsReloadAfterShoot && 
-            nowAmmoInShop > 0;
+    public InputPropertyGun Property { get; private set; }
+    public virtual bool IsCanShoot =>
+        !IsReload &&
+        !IsReloadAfterShoot &&
+        nowAmmoInShop > 0;
 
-        public bool IsReload { get; private set; }
+    public bool IsReload { get; private set; }
 
-        public bool IsReloadAfterShoot { get; private set; }
+    public bool IsReloadAfterShoot { get; private set; }
 
-        protected float nowTimeAfterShoot;
-        protected float nowTimeAfterStartReload;
-        protected int nowAmmoInShop;
-        private Transform pointSpawnBullet;
+    protected float nowTimeAfterShoot;
+    protected float nowTimeAfterStartReload;
+    protected int nowAmmoInShop;
+    private Transform pointSpawnBullet;
 
-        public void Initialize(Transform gun)
+    public void Initialize(Transform gun)
+    {
+        FindSpawnPoint(gun);
+    }
+
+    private void FindSpawnPoint(Transform gun)
+    {
+        for (int i = 0; i < gun.childCount; i++)
         {
-            FindSpawnPoint(gun);
-        }
-
-        private void FindSpawnPoint(Transform gun)
-        {
-            for (int i = 0; i < gun.childCount; i++)
+            var child = gun.GetChild(i);
+            if (child.name == "Spawn")
             {
-                var child = gun.GetChild(i);
-                if (child.name == "Spawn")
-                {
-                    pointSpawnBullet = child;
-                    break;
-                }
+                pointSpawnBullet = child;
+                break;
             }
         }
+    }
 
-        public void Execute()
-        {
-            ReloadAction();
-            ReloadAfterShootAction();
-        }
+    public void Execute()
+    {
+        ReloadAction();
+        ReloadAfterShootAction();
+    }
 
-        public void Reload()
-        {
-            IsReload = true;
-        }
+    public void Reload()
+    {
+        IsReload = true;
+    }
 
-        private void ReloadAction()
+    private void ReloadAction()
+    {
+        if (IsReload)
         {
-            if(IsReload)
+            nowTimeAfterStartReload += Time.deltaTime;
+            if (nowTimeAfterStartReload >= Property.TimeReload)
             {
-                nowTimeAfterStartReload += Time.deltaTime;
-                if(nowTimeAfterStartReload >= Property.TimeReload)
-                {
-                    nowTimeAfterStartReload = 0;
-                    IsReload = false;
-                }
+                nowTimeAfterStartReload = 0;
+                IsReload = false;
             }
         }
+    }
 
-        private void ReloadAfterShootAction()
+    private void ReloadAfterShootAction()
+    {
+        if (IsReloadAfterShoot)
         {
-            if (IsReloadAfterShoot)
+            nowTimeAfterShoot += Time.deltaTime;
+            if (nowTimeAfterShoot >= Property.TimeBetweenShoot)
             {
-                nowTimeAfterShoot += Time.deltaTime;
-                if (nowTimeAfterShoot >= Property.TimeBetweenShoot)
-                {
-                    nowTimeAfterShoot = 0;
-                    IsReloadAfterShoot = false;
-                }
+                nowTimeAfterShoot = 0;
+                IsReloadAfterShoot = false;
             }
         }
+    }
 
-        public virtual void Shoot(Vector3 positionShoot)
-        {
-            if (IsCanShoot) return;
-            if (nowAmmoInShop <= 0) return;
+    public virtual void Shoot(Vector3 positionShoot)
+    {
+        if (IsCanShoot) return;
+        if (nowAmmoInShop <= 0) return;
 
-            nowAmmoInShop -= 1;
-            SpawnBullet(positionShoot);
-            IsReloadAfterShoot = true;
+        nowAmmoInShop -= 1;
+        SpawnBullet(positionShoot);
+        IsReloadAfterShoot = true;
 
-            if (nowAmmoInShop <= 0) Reload();
-        }
+        if (nowAmmoInShop <= 0) Reload();
+    }
 
-        public void SpawnBullet(Vector3 positionShoot)
-        {
-            var bullet = GameObject.Instantiate(Property.bullet);
-            var bulletScript = bullet.GetComponent<Bullet>();
-            bulletScript.Initialize(Property.Damage);
+    public void SpawnBullet(Vector3 positionShoot)
+    {
+        var bullet = GameObject.Instantiate(Property.bullet);
+        var bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.Initialize(Property.Damage);
 
-            bullet.transform.position = pointSpawnBullet.position;
-            var direction = -(pointSpawnBullet.position - positionShoot).normalized;
-            bullet.transform.rotation = Quaternion.LookRotation(direction);
-            CalculationDispersion(bullet);
-        }
+        bullet.transform.position = pointSpawnBullet.position;
+        var direction = -(pointSpawnBullet.position - positionShoot).normalized;
+        bullet.transform.rotation = Quaternion.LookRotation(direction);
+        CalculationDispersion(bullet);
+    }
 
-        private void CalculationDispersion(GameObject bullet)
-        {
-            var dispersionX = UnityEngine.Random.Range(0, Property.Dispersion);
-            var dispersionY = UnityEngine.Random.Range(0, Property.Dispersion);
-            bullet.transform.Rotate(dispersionX, dispersionY, 0);
-        }
+    private void CalculationDispersion(GameObject bullet)
+    {
+        var dispersionX = UnityEngine.Random.Range(0, Property.Dispersion);
+        var dispersionY = UnityEngine.Random.Range(0, Property.Dispersion);
+        bullet.transform.Rotate(dispersionX, dispersionY, 0);
     }
 }

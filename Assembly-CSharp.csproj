@@ -68,8 +68,8 @@
     <Compile Include="Assets\Scripts\Classes\Gun\Gun.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\Guns\Glock.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\Guns\Pistols.cs" />
-    <Compile Include="Assets\Scripts\Classes\Gun\IGun.cs" />
-    <Compile Include="Assets\Scripts\Classes\Gun\IWeaponController.cs" />
+    <Compile Include="Assets\Scripts\Classes\Gun\Interfaces\IGun.cs" />
+    <Compile Include="Assets\Scripts\Classes\Gun\Interfaces\IWeaponController.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\PropertyGun.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\TypeAmmo.cs" />
     <Compile Include="Assets\Scripts\Classes\Gun\WeaponController.cs" />
@@ -79,9 +79,11 @@
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\IControlerTarget.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\IMove.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\ISelectUnit.cs" />
+    <Compile Include="Assets\Scripts\Classes\Unit\Interface\IUnitController.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\IUnitsInRange.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\MoveUnit.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\SelectTargetInRange.cs" />
+    <Compile Include="Assets\Scripts\Classes\Unit\UnitController.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\UnitProperty.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\UnitsInRange.cs" />
     <Compile Include="Assets\Scripts\InputController\IInputController.cs" />
