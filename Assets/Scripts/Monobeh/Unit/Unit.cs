@@ -21,7 +21,11 @@ public class Unit : MonoBehaviour
         GameObject = this.gameObject;
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
-        CreateControllerTarget(thisGameObject);
+        CreateControllerTarget(thisGameObject);        
+    }
+
+    protected void InitUnitController()
+    {
         UnitController = new UnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget, weaponController);
     }
 

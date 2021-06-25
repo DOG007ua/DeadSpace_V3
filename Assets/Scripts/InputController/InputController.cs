@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.InputController;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputController : IInputController
@@ -28,9 +26,9 @@ public class InputController : IInputController
     private void SelectUnit(Unit unit)
     {
         if (unit == selectedUnit) return;
-        unitController = unit.UnitController;
-        unitController.SelectUnit(false);
+        if (unitController != null) unitController.SelectUnit(false);
 
+        unitController = unit.UnitController;
         selectedUnit = unit;
         unitController.SelectUnit(true);
     }
