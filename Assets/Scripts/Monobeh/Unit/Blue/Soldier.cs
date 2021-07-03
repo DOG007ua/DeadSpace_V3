@@ -15,12 +15,13 @@ public class Soldier : Unit
     {
         Initialize(this.gameObject);
         Team = TeamUnit.Blue;
-        unitsInRange.Initialize(3, TeamUnit.Red);
+        unitsInRange.Initialize(10, TeamUnit.Red);
         moveUnit = new MoveUnit(unitData.property.Speed, unitData.property.Heigth, transform);
-        weaponController = new WeaponController();
+        weaponController = new WeaponController();        
+        UnitController = new BlueUnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget, weaponController);
 
         listComponents.Add(moveUnit);
-        InitUnitController();
+        listComponents.Add(UnitController);
     }
 
     private void Update()

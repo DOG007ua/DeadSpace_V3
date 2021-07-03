@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public interface IUnitController
+public interface IUnitController : IComponent
 {
     void MoveToPosition(Vector3 position);
     void SelectUnit(bool value);
     void SetTarget(Unit target);
     Unit Target { get;}
     Unit Unit { get;}
-
 
 }

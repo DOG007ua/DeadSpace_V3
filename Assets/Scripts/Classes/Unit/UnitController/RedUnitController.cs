@@ -39,4 +39,17 @@ class RedUnitController : IUnitController
     {
         controllerTarget.SetTarget(target);
     }
+
+    public void Execute()
+    {
+        LookAtTarget();
+    }
+
+    private void LookAtTarget()
+    {
+        if (!moveUnit.IsMove && controllerTarget.Target != null)
+        {
+            Unit.transform.LookAt(controllerTarget.Target.transform.position);
+        }
+    }
 }

@@ -24,11 +24,6 @@ public class Unit : MonoBehaviour
         CreateControllerTarget(thisGameObject);        
     }
 
-    protected void InitUnitController()
-    {
-        UnitController = new BlueUnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget, weaponController);
-    }
-
     private void CreateSelectUnit(GameObject thisGameObject)
     {
         var selectPartycle = Instantiate(unitData.prefabSelectCircle);

@@ -25,7 +25,19 @@ class BlueUnitController : IUnitController
         this.unitsInRange = unitsInRange;
         this.controllerTarget = controllerTarget;
         this.weaponController = weaponController;
+    }
 
+    public void Execute()
+    {
+        LookAtTarget();
+    }
+
+    private void LookAtTarget()
+    {
+        if(!moveUnit.IsMove && controllerTarget.Target != null)
+        {
+            Unit.transform.LookAt(controllerTarget.Target.transform.position);
+        }
     }
 
     public void MoveToPosition(Vector3 position)
