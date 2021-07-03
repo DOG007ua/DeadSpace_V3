@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e59647436b24394b91d825fd5cc232e, type: 3}
+  m_Name: Beiling
+  m_EditorClassIdentifier: 
+  prefabSelectCircle: {fileID: 7573003155936490630, guid: a176c30c8a5b09e41831e4ffb8a3b4de,
+    type: 3}
+  prefabBullet: {fileID: 0}
+  property:
+    HP: 100
+    Speed: 10
+    HPMax: 100
+    Heigth: 1

@@ -26,6 +26,7 @@ public class InputController : IInputController
     private void SelectUnit(Unit unit)
     {
         if (unit == selectedUnit) return;
+        if (unit.Team == TeamUnit.Red) return;
         if (unitController != null) unitController.SelectUnit(false);
 
         unitController = unit.UnitController;

@@ -69,7 +69,7 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
     {
         var obj = other.gameObject.GetComponent<Unit>();
 
-        if (obj != null)
+        if (obj != null && ListUnits.Contains(obj))
         {
             RemoveObject(obj);
             Debug.Log("Remove" + other.name);

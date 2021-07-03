@@ -15,7 +15,7 @@ public class Soldier : Unit
     {
         Initialize(this.gameObject);
         Team = TeamUnit.Blue;
-        unitsInRange.Initialize(3, TeamUnit.Blue);
+        unitsInRange.Initialize(3, TeamUnit.Red);
         moveUnit = new MoveUnit(unitData.property.Speed, unitData.property.Heigth, transform);
         weaponController = new WeaponController();
 
