@@ -26,7 +26,7 @@ public class Unit : MonoBehaviour
 
     protected void InitUnitController()
     {
-        UnitController = new UnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget, weaponController);
+        UnitController = new BlueUnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget, weaponController);
     }
 
     private void CreateSelectUnit(GameObject thisGameObject)

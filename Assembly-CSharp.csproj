@@ -83,7 +83,8 @@
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\IUnitsInRange.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\MoveUnit.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\SelectTargetInRange.cs" />
-    <Compile Include="Assets\Scripts\Classes\Unit\UnitController.cs" />
+    <Compile Include="Assets\Scripts\Classes\Unit\UnitController\BlueUnitController.cs" />
+    <Compile Include="Assets\Scripts\Classes\Unit\UnitController\RedUnitController.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\UnitProperty.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\UnitsInRange.cs" />
     <Compile Include="Assets\Scripts\InputController\IInputController.cs" />
@@ -91,8 +92,9 @@
     <Compile Include="Assets\Scripts\InputController\InputClick.cs" />
     <Compile Include="Assets\Scripts\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Bootstrap.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Blue\Soldier.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Red\Beiling.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\SelectUnitPartycle.cs" />
-    <Compile Include="Assets\Scripts\Monobeh\Unit\Soldier.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\Unit\UnitData.cs" />
     <Reference Include="UnityEngine">

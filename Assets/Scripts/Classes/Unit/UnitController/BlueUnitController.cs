@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class UnitController : IUnitController
+class BlueUnitController : IUnitController
 {
     public Unit Target => controllerTarget.Target;
     public Unit Unit { get; private set; }
@@ -17,7 +17,7 @@ class UnitController : IUnitController
     private IWeaponController weaponController;
    
 
-    public UnitController(Unit unit,  IMove moveUnit, ISelectUnit selectUnit, IUnitsInRange unitsInRange, IControlerTarget controllerTarget, IWeaponController weaponController)
+    public BlueUnitController(Unit unit,  IMove moveUnit, ISelectUnit selectUnit, IUnitsInRange unitsInRange, IControlerTarget controllerTarget, IWeaponController weaponController)
     {
         this.Unit = unit;
         this.moveUnit = moveUnit;
