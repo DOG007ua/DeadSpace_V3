@@ -18,6 +18,7 @@ public class Unit : MonoBehaviour
 
     protected virtual void Initialize(GameObject thisGameObject)
     {
+        unitData.property.HP = unitData.property.HPMax;
         GameObject = this.gameObject;
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
@@ -68,6 +69,7 @@ public class Unit : MonoBehaviour
 
     public void Damage(float damage)
     {
-
+        unitData.property.HP -= damage;
+        if (unitData.property.HP <= 0) Destroy(this.gameObject);
     }
 }

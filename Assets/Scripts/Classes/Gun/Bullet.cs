@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Enemy")
+        if(collision.transform.tag == "Red")
         {
             var unit = collision.transform.GetComponent<Unit>();
             unit.Damage(damage);
