@@ -8,9 +8,10 @@ namespace Assets.Scripts.Classes.Gun.Guns
 {
     class Glock : Pistols
     {
+        public InputPropertyGun InputProperty;
         private void Start()
         {
-            Initialize(transform);
+            Initialize(transform, InputProperty);
         }
 
         private void Update()

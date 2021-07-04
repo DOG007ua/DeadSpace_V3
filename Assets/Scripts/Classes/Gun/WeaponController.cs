@@ -6,16 +6,24 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class WeaponController : IWeaponController
+class WeaponController : MonoBehaviour, IWeaponController
 {
     public Gun MainGun { get; set; }
     public Gun SecondGun { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public bool IsCanShoot => MainGun.IsCanShoot;
 
-    public void Initialize(Gun mainGun)
+    public void Start()
     {
-        MainGun = mainGun;
+        MainGun = GetComponentInChildren<Gun>();
+    }
+
+    public void RefreshGun(GameObject newGun)
+    {
+        MainGun = newGun.GetComponentInChildren<Gun>();
+        newGun.transform.parent = transform;
+        newGun.transform.localPosition = new Vector3(0,0,0.4f);
+
     }
 
     public void Reload()

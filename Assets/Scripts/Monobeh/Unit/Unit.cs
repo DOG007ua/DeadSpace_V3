@@ -21,7 +21,13 @@ public class Unit : MonoBehaviour
         GameObject = this.gameObject;
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
-        CreateControllerTarget(thisGameObject);        
+        CreateControllerTarget(thisGameObject);
+        CreateWeaponController(thisGameObject);
+    }
+
+    private void CreateWeaponController(GameObject thisGameObject)
+    {
+        weaponController = GetComponentInChildren<IWeaponController>();
     }
 
     private void CreateSelectUnit(GameObject thisGameObject)

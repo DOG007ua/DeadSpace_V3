@@ -22,8 +22,9 @@ public abstract class Gun : MonoBehaviour, IGun
     protected int nowAmmoInShop;
     private Transform pointSpawnBullet;
 
-    public void Initialize(Transform gun)
+    public void Initialize(Transform gun, InputPropertyGun property)
     {
+        Property = property;
         FindSpawnPoint(gun);
     }
 

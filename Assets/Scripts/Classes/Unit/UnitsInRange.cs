@@ -23,7 +23,6 @@ class UnitsInRange : MonoBehaviour, IUnitsInRange
             colliderSphere.radius = value;
         }
     }
-
     
 
     public void AddObject(Unit unit)

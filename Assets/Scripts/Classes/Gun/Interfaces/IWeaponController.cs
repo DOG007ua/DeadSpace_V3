@@ -12,4 +12,6 @@ public interface IWeaponController
     Gun SecondGun { get; set; }
     void Shoot(Vector3 position);
     bool IsCanShoot { get; }
+
+    void RefreshGun(GameObject newGun);
 }
