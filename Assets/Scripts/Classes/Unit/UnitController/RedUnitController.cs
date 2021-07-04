@@ -52,4 +52,10 @@ class RedUnitController : IUnitController
             Unit.transform.LookAt(controllerTarget.Target.transform.position);
         }
     }
+
+    public void Damage(float damage)
+    {
+        Unit.unitData.property.HP -= damage;
+        if (Unit.unitData.property.HP <= 0) GameObject.Destroy(Unit.gameObject);
+    }
 }

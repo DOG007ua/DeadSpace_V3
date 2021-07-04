@@ -6,7 +6,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     protected List<IComponent> listComponents = new List<IComponent>();
-    [SerializeField] protected UnitData unitData;
+    [SerializeField] public UnitData unitData;
     protected IMove moveUnit;
     protected ISelectUnit selectUnit;
     protected IUnitsInRange unitsInRange;
@@ -69,7 +69,6 @@ public class Unit : MonoBehaviour
 
     public void Damage(float damage)
     {
-        unitData.property.HP -= damage;
-        if (unitData.property.HP <= 0) Destroy(this.gameObject);
+        UnitController.Damage(damage);
     }
 }

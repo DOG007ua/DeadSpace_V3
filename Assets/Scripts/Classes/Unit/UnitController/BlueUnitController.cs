@@ -68,4 +68,10 @@ class BlueUnitController : IUnitController
     {
         controllerTarget.SetTarget(target);
     }
+
+    public void Damage(float damage)
+    {
+        Unit.unitData.property.HP -= damage;
+        if (Unit.unitData.property.HP <= 0) GameObject.Destroy(Unit.gameObject);
+    }
 }

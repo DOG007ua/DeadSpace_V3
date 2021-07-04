@@ -13,4 +13,5 @@ public interface IUnitController : IComponent
     Unit Target { get;}
     Unit Unit { get;}
 
+    void Damage(float damage);
 }
