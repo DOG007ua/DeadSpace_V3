@@ -30,6 +30,7 @@ class BlueUnitController : IUnitController
     public void Execute()
     {
         LookAtTarget();
+        ShootAtTarget();
     }
 
     private void LookAtTarget()
@@ -37,6 +38,19 @@ class BlueUnitController : IUnitController
         if(!moveUnit.IsMove && controllerTarget.Target != null)
         {
             Unit.transform.LookAt(controllerTarget.Target.transform.position);
+        }
+    }
+
+    private void ShootAtTarget()
+    {
+        if (!moveUnit.IsMove && controllerTarget.Target != null)
+        {
+            var distance = Vector3.Distance(Unit.transform.position, Target.transform.position);
+            if(distance < weaponController.MainGun.Property.RangeShoot)
+            {
+                weaponController.Shoot(Target.transform.position);
+            }
+            
         }
     }
 

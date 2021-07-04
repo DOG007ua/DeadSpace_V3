@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Glock
   m_EditorClassIdentifier: Assembly-CSharp::InputPropertyGun
   TypeAmmo: 0
-  MaxAmmo: 20
+  MaxAmmo: 12
   TimeReload: 3
-  TimeBetweenShoot: 0.15
+  TimeBetweenShoot: 0.4
   RangeShoot: 10
-  Dispersion: 0.1
+  Dispersion: 1
   Damage: 10
   bullet: {fileID: 5813134973646567347, guid: 2c2b5f26f10625a40bd9edf3c7d2284e, type: 3}

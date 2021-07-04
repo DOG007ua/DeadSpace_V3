@@ -25,7 +25,8 @@ public abstract class Gun : MonoBehaviour, IGun
     public void Initialize(Transform gun, InputPropertyGun property)
     {
         Property = property;
-        FindSpawnPoint(gun);
+        nowAmmoInShop = property.MaxAmmo;
+        FindSpawnPoint(gun);        
     }
 
     private void FindSpawnPoint(Transform gun)
@@ -59,6 +60,7 @@ public abstract class Gun : MonoBehaviour, IGun
             nowTimeAfterStartReload += Time.deltaTime;
             if (nowTimeAfterStartReload >= Property.TimeReload)
             {
+                nowAmmoInShop = Property.MaxAmmo;
                 nowTimeAfterStartReload = 0;
                 IsReload = false;
             }
@@ -80,8 +82,7 @@ public abstract class Gun : MonoBehaviour, IGun
 
     public virtual void Shoot(Vector3 positionShoot)
     {
-        if (IsCanShoot) return;
-        if (nowAmmoInShop <= 0) return;
+        if (!IsCanShoot) return;
 
         nowAmmoInShop -= 1;
         SpawnBullet(positionShoot);
