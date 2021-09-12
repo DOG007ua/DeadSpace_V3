@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
+    public IUnitController UnitController;
+    public TeamUnit Team { get; protected set; }
+    public GameObject GameObject { get; private set; }
+    public bool IsInitialize = false;
     protected List<IComponent> listComponents = new List<IComponent>();
     [SerializeField] public UnitData unitData;
     protected IMove moveUnit;
@@ -12,18 +16,18 @@ public class Unit : MonoBehaviour
     protected IUnitsInRange unitsInRange;
     protected IControlerTarget controllerTarget;
     protected IWeaponController weaponController;
-    public IUnitController UnitController;
-    public TeamUnit Team { get; protected set; }
-    public GameObject GameObject { get; private set; }
+   
 
     protected virtual void Initialize(GameObject thisGameObject)
     {
+        if (IsInitialize) return;
         unitData.property.HP = unitData.property.HPMax;
         GameObject = this.gameObject;
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
         CreateControllerTarget(thisGameObject);
         CreateWeaponController(thisGameObject);
+        IsInitialize = true;
     }
 
     private void CreateWeaponController(GameObject thisGameObject)
