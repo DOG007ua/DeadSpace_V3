@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
-class Beiling : Unit
+class Beiling : RedTeam
 {
     private void Start()
     {
@@ -13,13 +14,10 @@ class Beiling : Unit
 
     protected void Initialize()
     {
-        Initialize(this.gameObject);
-        Team = TeamUnit.Red;
-        unitsInRange.Initialize(10, TeamUnit.Blue);
-        moveUnit = new MoveUnit(unitData.property.Speed, unitData.property.Heigth, transform);
+        Initialize(this.gameObject);        
         UnitController = new RedUnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget);
 
-        listComponents.Add(moveUnit);
+        
         listComponents.Add(UnitController);
     }
 

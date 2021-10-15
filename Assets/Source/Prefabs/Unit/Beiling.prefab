@@ -123,4 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0af15a9929a94f4cbf888b02cda0f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitData: {fileID: 11400000, guid: e951c92868985704895a1c5c78c1ab65, type: 2}
+  inputUnitData: {fileID: 11400000, guid: e951c92868985704895a1c5c78c1ab65, type: 2}
+  IsInitialize: 0
+  HP: 0

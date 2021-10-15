@@ -7,10 +7,12 @@ public class Unit : MonoBehaviour
 {
     public IUnitController UnitController;
     public TeamUnit Team { get; protected set; }
+    public UnitData inputUnitData;
     public GameObject GameObject { get; private set; }
     public bool IsInitialize = false;
+    public float HP;
     protected List<IComponent> listComponents = new List<IComponent>();
-    [SerializeField] public UnitData unitData;
+    
     protected IMove moveUnit;
     protected ISelectUnit selectUnit;
     protected IUnitsInRange unitsInRange;
@@ -21,7 +23,7 @@ public class Unit : MonoBehaviour
     protected virtual void Initialize(GameObject thisGameObject)
     {
         if (IsInitialize) return;
-        unitData.property.HP = unitData.property.HPMax;
+        HP = inputUnitData.property.HPMax;
         GameObject = this.gameObject;
         CreateSelectUnit(thisGameObject);
         CreateUnitInRange(thisGameObject);
@@ -37,7 +39,7 @@ public class Unit : MonoBehaviour
 
     private void CreateSelectUnit(GameObject thisGameObject)
     {
-        var selectPartycle = Instantiate(unitData.prefabSelectCircle);
+        var selectPartycle = Instantiate(inputUnitData.prefabSelectCircle);
         selectPartycle.transform.parent = thisGameObject.transform;
         selectPartycle.transform.localPosition = new Vector3(0, 0.3f, 0);
 

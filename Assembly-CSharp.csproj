@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Monobeh\Bootstrap.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Blue\Soldier.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Red\Beiling.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Red\RedTeam.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\SelectUnitPartycle.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\Unit\TypeUnit.cs" />
