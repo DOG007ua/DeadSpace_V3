@@ -10,7 +10,9 @@ public class RedTeam : Unit
         Team = TeamUnit.Red;
         unitsInRange.Initialize(10, TeamUnit.Blue);
         moveUnit = new MoveUnit(inputUnitData.property.Speed, inputUnitData.property.Heigth, transform);
+        UnitController = new RedUnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget);
 
+        listComponents.Add(UnitController);
         listComponents.Add(moveUnit);
     }
 }

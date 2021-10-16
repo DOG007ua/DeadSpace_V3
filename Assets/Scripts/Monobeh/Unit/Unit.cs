@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
     public TeamUnit Team { get; protected set; }
     public UnitData inputUnitData;
     public GameObject GameObject { get; private set; }
-    public bool IsInitialize = false;
+    public bool IsInitialize { get; private set; }
     public float HP;
     protected List<IComponent> listComponents = new List<IComponent>();
     
@@ -76,5 +76,10 @@ public class Unit : MonoBehaviour
     public void Damage(float damage)
     {
         UnitController.Damage(damage);
+    }
+
+    public virtual void Dead()
+    {
+        GameObject.Destroy(gameObject);
     }
 }

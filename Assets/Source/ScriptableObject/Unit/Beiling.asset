@@ -17,6 +17,6 @@ MonoBehaviour:
   prefabBullet: {fileID: 0}
   property:
     HP: 100
-    Speed: 10
+    Speed: 3
     HPMax: 100
     Heigth: 1

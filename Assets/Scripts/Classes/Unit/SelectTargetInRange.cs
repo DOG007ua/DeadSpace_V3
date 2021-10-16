@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 class SelectTargetInRange : IControlerTarget
 {
@@ -13,11 +14,21 @@ class SelectTargetInRange : IControlerTarget
             target = value;
             if(target == null)
             {
+                
                 FindNewUnit();
+            }
+            else
+            {
+                eventNewTarget?.Invoke(value);
             }
         }
     }
+
+    public bool HasTarget => Target != null;
+
     private IUnitsInRange unitsInRange;
+
+    public event Action<Unit> eventNewTarget;
 
     public SelectTargetInRange(IUnitsInRange unitsInRange, Transform transformUnit)
     {

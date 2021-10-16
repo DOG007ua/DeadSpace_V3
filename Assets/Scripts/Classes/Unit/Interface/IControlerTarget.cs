@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 public interface IControlerTarget
 {
     Unit Target { get;}
+    bool HasTarget { get; }
     void SetTarget(Unit unit);
+    event Action<Unit> eventNewTarget;
 
 }

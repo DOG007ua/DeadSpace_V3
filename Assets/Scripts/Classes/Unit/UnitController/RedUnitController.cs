@@ -23,6 +23,8 @@ class RedUnitController : IUnitController
         this.selectUnit = selectUnit;
         this.unitsInRange = unitsInRange;
         this.controllerTarget = controllerTarget;
+
+        controllerTarget.eventNewTarget += NewTarget;
     }
 
     public void MoveToPosition(Vector3 position)
@@ -37,6 +39,7 @@ class RedUnitController : IUnitController
 
     public void SetTarget(Unit target)
     {
+        Debug.Log("Set target");
         controllerTarget.SetTarget(target);
     }
 
@@ -56,6 +59,14 @@ class RedUnitController : IUnitController
     public void Damage(float damage)
     {
         Unit.HP -= damage;
-        if (Unit.HP <= 0) GameObject.Destroy(Unit.gameObject);
+        if (Unit.HP <= 0)
+        {
+            Unit.Dead();
+        }
+    }
+
+    private void NewTarget(Unit target)
+    {
+        moveUnit.MoveToPosition(target.transform.position);
     }
 }
