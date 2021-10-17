@@ -25,7 +25,7 @@ public class SpawnerBailing : SpawnerBuild
     {
         if(target != null)
         {
-            unit.UnitController.SetTarget(target.GetComponent<Unit>());
+            unit.UnitController.MoveToPosition(target.position);
         }  
     }
 }

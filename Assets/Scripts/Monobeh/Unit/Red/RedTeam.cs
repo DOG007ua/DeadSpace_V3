@@ -12,6 +12,7 @@ public class RedTeam : Unit
         moveUnit = new MoveUnit(inputUnitData.property.Speed, inputUnitData.property.Heigth, transform);
         UnitController = new RedUnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget);
 
+        gameObject.AddComponent<UnitFeatureMonoRed>().Initialize(this);
         listComponents.Add(UnitController);
         listComponents.Add(moveUnit);
     }

@@ -19,6 +19,8 @@ public class Soldier : Unit
         moveUnit = new MoveUnit(inputUnitData.property.Speed, inputUnitData.property.Heigth, transform);               
         UnitController = new BlueUnitController(this, moveUnit, selectUnit, unitsInRange, controllerTarget, weaponController);
 
+        gameObject.AddComponent<UnitFeatureMonoBlue>().Initialize(this);
+
         listComponents.Add(moveUnit);
         listComponents.Add(UnitController);
     }

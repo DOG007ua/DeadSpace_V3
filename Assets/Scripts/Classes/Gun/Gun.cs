@@ -11,21 +11,21 @@ public abstract class Gun : MonoBehaviour, IGun
     public virtual bool IsCanShoot =>
         !IsReload &&
         !IsReloadAfterShoot &&
-        nowAmmoInShop > 0;
+        NowAmmoInShop > 0;
 
     public bool IsReload { get; private set; }
 
     public bool IsReloadAfterShoot { get; private set; }
 
-    protected float nowTimeAfterShoot;
-    protected float nowTimeAfterStartReload;
-    protected int nowAmmoInShop;
+    public float NowTimeAfterShoot { get; protected set; }
+    public float NowTimeAfterStartReload { get; protected set; }
+    public int NowAmmoInShop { get; protected set; }
     private Transform pointSpawnBullet;
 
     public void Initialize(Transform gun, InputPropertyGun property)
     {
         Property = property;
-        nowAmmoInShop = property.MaxAmmo;
+        NowAmmoInShop = property.MaxAmmo;
         FindSpawnPoint(gun);        
     }
 
@@ -57,11 +57,11 @@ public abstract class Gun : MonoBehaviour, IGun
     {
         if (IsReload)
         {
-            nowTimeAfterStartReload += Time.deltaTime;
-            if (nowTimeAfterStartReload >= Property.TimeReload)
+            NowTimeAfterStartReload += Time.deltaTime;
+            if (NowTimeAfterStartReload >= Property.TimeReload)
             {
-                nowAmmoInShop = Property.MaxAmmo;
-                nowTimeAfterStartReload = 0;
+                NowAmmoInShop = Property.MaxAmmo;
+                NowTimeAfterStartReload = 0;
                 IsReload = false;
             }
         }
@@ -71,10 +71,10 @@ public abstract class Gun : MonoBehaviour, IGun
     {
         if (IsReloadAfterShoot)
         {
-            nowTimeAfterShoot += Time.deltaTime;
-            if (nowTimeAfterShoot >= Property.TimeBetweenShoot)
+            NowTimeAfterShoot += Time.deltaTime;
+            if (NowTimeAfterShoot >= Property.TimeBetweenShoot)
             {
-                nowTimeAfterShoot = 0;
+                NowTimeAfterShoot = 0;
                 IsReloadAfterShoot = false;
             }
         }
@@ -84,11 +84,11 @@ public abstract class Gun : MonoBehaviour, IGun
     {
         if (!IsCanShoot) return;
 
-        nowAmmoInShop -= 1;
+        NowAmmoInShop -= 1;
         SpawnBullet(positionShoot);
         IsReloadAfterShoot = true;
 
-        if (nowAmmoInShop <= 0) Reload();
+        if (NowAmmoInShop <= 0) Reload();
     }
 
     public void SpawnBullet(Vector3 positionShoot)

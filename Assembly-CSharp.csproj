@@ -97,6 +97,12 @@
     <Compile Include="Assets\Scripts\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Bootstrap.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Blue\Soldier.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\GunFeature.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\IFeatureUnit.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\MainFeature.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\UnitFeature.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\UnitFeatureMonoBlue.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\UnitFeatureMonoRed.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Red\Beiling.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Red\RedTeam.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\SelectUnitPartycle.cs" />

@@ -13,12 +13,12 @@ public class Unit : MonoBehaviour
     public float HP;
     protected List<IComponent> listComponents = new List<IComponent>();
     
-    protected IMove moveUnit;
-    protected ISelectUnit selectUnit;
-    protected IUnitsInRange unitsInRange;
-    protected IControlerTarget controllerTarget;
-    protected IWeaponController weaponController;
-   
+    public IMove moveUnit { get; protected set; }
+    public ISelectUnit selectUnit { get; protected set; }
+    public IUnitsInRange unitsInRange { get; protected set; }
+    public IControlerTarget controllerTarget { get; protected set; }
+    public IWeaponController weaponController { get; protected set; }
+
 
     protected virtual void Initialize(GameObject thisGameObject)
     {
