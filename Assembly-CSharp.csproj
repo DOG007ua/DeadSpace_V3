@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\Monobeh\Unit\Red\RedTeam.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\SelectUnitPartycle.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Unit.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\Unit\UnitInputData.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\Unit\TypeUnit.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\Unit\UnitData.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />

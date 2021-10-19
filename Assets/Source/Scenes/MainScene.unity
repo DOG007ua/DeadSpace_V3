@@ -1636,16 +1636,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3050626830205471975, guid: f56c6cc3e5af76441b4575549d9c0425,
-        type: 3}
-      propertyPath: inputUnitData
-      value: 
-      objectReference: {fileID: 11400000, guid: 1332517074052f44eb35bb9ad1545d06,
-        type: 2}
     - target: {fileID: 8317074666551231764, guid: f56c6cc3e5af76441b4575549d9c0425,
         type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: Soldier
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56c6cc3e5af76441b4575549d9c0425, type: 3}

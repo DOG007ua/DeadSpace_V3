@@ -7,7 +7,7 @@ public class Unit : MonoBehaviour
 {
     public IUnitController UnitController;
     public TeamUnit Team { get; protected set; }
-    public UnitData inputUnitData;
+    
     public GameObject GameObject { get; private set; }
     public bool IsInitialize { get; private set; }
 
@@ -23,19 +23,21 @@ public class Unit : MonoBehaviour
             }
         }
     }
-    protected List<IComponent> listComponents = new List<IComponent>();
     
     public IMove moveUnit { get; protected set; }
     public ISelectUnit selectUnit { get; protected set; }
     public IUnitsInRange unitsInRange { get; protected set; }
     public IControlerTarget controllerTarget { get; protected set; }
     public IWeaponController weaponController { get; protected set; }
+    protected List<IComponent> listComponents = new List<IComponent>();
+    protected UnitData inputUnitData;
     private float hp;
 
 
     protected virtual void Initialize(GameObject thisGameObject)
     {
         if (IsInitialize) return;
+        SetInputData();
         HP = inputUnitData.property.HPMax;
         GameObject = this.gameObject;
         CreateSelectUnit(thisGameObject);
@@ -43,6 +45,13 @@ public class Unit : MonoBehaviour
         CreateControllerTarget(thisGameObject);
         CreateWeaponController(thisGameObject);
         IsInitialize = true;
+    }
+
+    private void SetInputData()
+    {
+        var inputScript = GetComponent<UnitInputData>();
+        inputUnitData = inputScript.inputUnitData;
+        Destroy(inputScript);
     }
 
     private void CreateWeaponController(GameObject thisGameObject)
