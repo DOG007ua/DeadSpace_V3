@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.InputController;
+using System;
 using UnityEngine;
 
 public class InputController : IInputController
@@ -6,6 +7,7 @@ public class InputController : IInputController
     private Unit selectedUnit;
     private IUnitController unitController;
 
+    public event Action<Unit> eventSelectUnit;
 
     public void ReactionLeftClick(InfoClick info)
     {
@@ -32,6 +34,8 @@ public class InputController : IInputController
         unitController = unit.UnitController;
         selectedUnit = unit;
         unitController.SelectUnit(true);
+
+        eventSelectUnit?.Invoke(unit);
     }
 
     private void MoveUnit(Vector3 position)

@@ -10,5 +10,6 @@ namespace Assets.Scripts.InputController
     {
         void ReactionLeftClick(InfoClick info);
         void ReactionRightClick(InfoClick info);
+        event Action<Unit> eventSelectUnit;
     }
 }
