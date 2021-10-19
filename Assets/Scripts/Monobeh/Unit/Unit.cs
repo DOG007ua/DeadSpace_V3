@@ -10,7 +10,19 @@ public class Unit : MonoBehaviour
     public UnitData inputUnitData;
     public GameObject GameObject { get; private set; }
     public bool IsInitialize { get; private set; }
-    public float HP;
+
+    public float HP 
+    {
+        get => hp;
+        private set
+        {
+            hp = value;
+            if(hp < 0)
+            {
+                Dead();
+            }
+        }
+    }
     protected List<IComponent> listComponents = new List<IComponent>();
     
     public IMove moveUnit { get; protected set; }
@@ -18,6 +30,7 @@ public class Unit : MonoBehaviour
     public IUnitsInRange unitsInRange { get; protected set; }
     public IControlerTarget controllerTarget { get; protected set; }
     public IWeaponController weaponController { get; protected set; }
+    private float hp;
 
 
     protected virtual void Initialize(GameObject thisGameObject)
@@ -71,6 +84,11 @@ public class Unit : MonoBehaviour
         {
             component.Execute();
         }
+    }
+
+    public void SetHP(float value)
+    {
+        HP = value;
     }
 
     public void Damage(float damage)

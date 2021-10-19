@@ -58,11 +58,7 @@ class RedUnitController : IUnitController
 
     public void Damage(float damage)
     {
-        Unit.HP -= damage;
-        if (Unit.HP <= 0)
-        {
-            Unit.Dead();
-        }
+        Unit.SetHP(Unit.HP - damage);
     }
 
     private void NewTarget(Unit target)
