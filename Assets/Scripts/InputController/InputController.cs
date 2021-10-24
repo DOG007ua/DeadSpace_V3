@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.InputController;
-using System;
+﻿using System;
 using UnityEngine;
 
 public class InputController : IInputController

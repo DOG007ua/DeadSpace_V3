@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.InputController
+public interface IInputController
 {
-    interface IInputController
-    {
-        void ReactionLeftClick(InfoClick info);
-        void ReactionRightClick(InfoClick info);
-        event Action<Unit> eventSelectUnit;
-    }
+    void ReactionLeftClick(InfoClick info);
+    void ReactionRightClick(InfoClick info);
+    event Action<Unit> eventSelectUnit;
 }

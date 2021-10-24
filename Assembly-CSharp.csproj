@@ -110,6 +110,13 @@
     <Compile Include="Assets\Scripts\Monobeh\Unit\UnitInputData.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\Unit\TypeUnit.cs" />
     <Compile Include="Assets\Scripts\ScriptableObject\Unit\UnitData.cs" />
+    <Compile Include="Assets\Scripts\UI\IUIInfoGunController.cs" />
+    <Compile Include="Assets\Scripts\UI\IUIInfoUnitController.cs" />
+    <Compile Include="Assets\Scripts\UI\IUISelectUnit.cs" />
+    <Compile Include="Assets\Scripts\UI\UIController.cs" />
+    <Compile Include="Assets\Scripts\UI\UIInfoGunController.cs" />
+    <Compile Include="Assets\Scripts\UI\UIInfoUnitController.cs" />
+    <Compile Include="Assets\Scripts\UI\UISelectUnit.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
