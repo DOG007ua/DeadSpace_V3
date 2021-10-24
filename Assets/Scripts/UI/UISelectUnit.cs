@@ -5,23 +5,23 @@ using UnityEngine;
 public class UISelectUnit : MonoBehaviour
 {
     public bool IsSelectUnitUI { get; set; }
-    private Unit selectUnit;
+    private UnitFeature selectUnitFeature;
     private IUIInfoUnitController uiInfoUnit;
     private IUIInfoGunController uiInfoGun;
 
     public void SelectUnit(Unit unit)
     {
-        selectUnit = unit;
+        selectUnitFeature = unit.UnitFeature;
         IsSelectUnitUI = unit == null ? false : true;
-        uiInfoUnit.SelectUnit(unit);
-        uiInfoGun.SelectUnit(unit);
+        uiInfoUnit.SelectUnit(selectUnitFeature);
+        uiInfoGun.SelectUnit(selectUnitFeature);
         SetStaticValue();
     }
 
     private void Start()
     {
-        uiInfoUnit = GetComponent<IUIInfoUnitController>();
-        uiInfoGun = GetComponent<IUIInfoGunController>();
+        uiInfoUnit = GetComponentInChildren<IUIInfoUnitController>();
+        uiInfoGun = GetComponentInChildren<IUIInfoGunController>();
     }
 
     private void Update()

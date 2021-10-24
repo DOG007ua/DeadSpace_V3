@@ -7,11 +7,12 @@ public class Unit : MonoBehaviour
 {
     public IUnitController UnitController;
     public TeamUnit Team { get; protected set; }
+    public UnitFeature UnitFeature { get; private set; }
     
     public GameObject GameObject { get; private set; }
     public bool IsInitialize { get; private set; }
 
-    public string Name = "Unit";
+    public string Name { get; protected set; }
 
     public float HP 
     {
@@ -46,6 +47,8 @@ public class Unit : MonoBehaviour
         CreateUnitInRange(thisGameObject);
         CreateControllerTarget(thisGameObject);
         CreateWeaponController(thisGameObject);
+        UnitFeature = new UnitFeature(this);
+
         IsInitialize = true;
     }
 

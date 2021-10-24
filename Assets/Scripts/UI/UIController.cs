@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public UISelectUnit uiSelectUnit;
+    private UISelectUnit uiSelectUnit;
     private IInputController inputController;
-
-
 
     public void Initialize(IInputController inputController)
     {

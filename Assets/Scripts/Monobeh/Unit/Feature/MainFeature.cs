@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class MainFeature
+public class MainFeature
 {
     private Unit unit;
    
@@ -14,4 +14,5 @@ class MainFeature
     }
 
     public float HP => unit.HP;
+    public string Name => unit.Name;
 }

@@ -12,9 +12,9 @@ class UnitFeatureMonoBlue : MonoBehaviour
     public int MaxAmmo;
     public int NowAmmo;
 
-    public void Initialize(Unit unit)
+    public void Initialize(UnitFeature unit)
     {
-        feature = new UnitFeature(unit);
+        feature = unit;
     }
 
     private void Update()

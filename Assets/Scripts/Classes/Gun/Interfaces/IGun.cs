@@ -11,5 +11,6 @@ public interface IGun
     void Reload();
     void Shoot(Vector3 positionShoot);
     void Execute();
+    string Name { get; set; }
 
 }

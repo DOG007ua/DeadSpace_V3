@@ -14,6 +14,7 @@ public class Soldier : BlueTeam
     protected void Initialize()
     {
         Initialize(this.gameObject);
+        Name = "Soldier";
     }
 
     private void Update()

@@ -6,5 +6,6 @@ public interface IUIInfoGunController
 {
     void SetStaticValue();
     void SetNonFixedValue();
-    void SelectUnit(Unit unit);
+    void SelectUnit(UnitFeature unit);
+    void Reset();
 }

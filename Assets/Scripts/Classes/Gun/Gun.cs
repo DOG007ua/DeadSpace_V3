@@ -20,6 +20,8 @@ public abstract class Gun : MonoBehaviour, IGun
     public float NowTimeAfterShoot { get; protected set; }
     public float NowTimeAfterStartReload { get; protected set; }
     public int NowAmmoInShop { get; protected set; }
+    public string Name { get; set; } = "Name";
+
     private Transform pointSpawnBullet;
 
     public void Initialize(Transform gun, InputPropertyGun property)

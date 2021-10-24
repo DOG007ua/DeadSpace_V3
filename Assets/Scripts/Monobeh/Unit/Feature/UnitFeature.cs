@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class UnitFeature
+public class UnitFeature
 {
     private Unit unit;
     public MainFeature Main;

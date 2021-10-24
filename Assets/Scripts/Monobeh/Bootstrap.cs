@@ -2,8 +2,10 @@
 
 public class Bootstrap : MonoBehaviour
 {
-    private IInputController inputController;
+    [SerializeField] private UIController uiController = null;
     public InputClick inputClick;
+    private IInputController inputController;    
+    
 
     void Start()
     {
@@ -20,6 +22,7 @@ public class Bootstrap : MonoBehaviour
     private void Initialized()
     {
         inputController = new InputController();
+        uiController.Initialize(inputController);
     }
 
     private void Subscription()

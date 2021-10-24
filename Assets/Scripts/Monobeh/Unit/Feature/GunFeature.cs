@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class GunFeature
+public class GunFeature
 {
     private Unit unit;
     public GunFeature(Unit unit)
@@ -16,6 +16,6 @@ class GunFeature
     public int MaxInShop => unit.weaponController.MainGun.Property.MaxAmmo;
     public float MaxTimeReload => unit.weaponController.MainGun.Property.TimeReload;
     public float NowTimeReload => unit.weaponController.MainGun.NowTimeAfterStartReload;
-    
+    public string Name => unit.weaponController.MainGun.name;
 
 }
