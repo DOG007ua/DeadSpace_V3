@@ -11,6 +11,8 @@ public class Unit : MonoBehaviour
     public GameObject GameObject { get; private set; }
     public bool IsInitialize { get; private set; }
 
+    public string Name = "Unit";
+
     public float HP 
     {
         get => hp;
