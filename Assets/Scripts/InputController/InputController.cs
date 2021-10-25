@@ -5,8 +5,16 @@ public class InputController : IInputController
 {
     private Unit selectedUnit;
     private IUnitController unitController;
+    private InfoClick infoMousePosition;
+
+    public InfoClick InfoMousePostition => infoMousePosition;
 
     public event Action<Unit> eventSelectUnit;
+
+    public InputController(InfoClick infoMousePosition)
+    {
+        this.infoMousePosition = infoMousePosition;
+    }
 
     public void ReactionLeftClick(InfoClick info)
     {

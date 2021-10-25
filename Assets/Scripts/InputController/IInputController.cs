@@ -8,5 +8,6 @@ public interface IInputController
 {
     void ReactionLeftClick(InfoClick info);
     void ReactionRightClick(InfoClick info);
+    InfoClick InfoMousePostition { get; }
     event Action<Unit> eventSelectUnit;
 }

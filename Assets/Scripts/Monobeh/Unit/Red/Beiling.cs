@@ -18,8 +18,8 @@ class Beiling : RedTeam
 
     protected void Initialize()
     {
-        Initialize(this.gameObject);        
-        
+        Initialize(this.gameObject);
+        Name = "Beiling";
     }
 
     private void Update()

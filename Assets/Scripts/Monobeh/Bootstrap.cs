@@ -21,7 +21,7 @@ public class Bootstrap : MonoBehaviour
 
     private void Initialized()
     {
-        inputController = new InputController();
+        inputController = new InputController(inputClick.InfoMousePosition);
         uiController.Initialize(inputController);
     }
 

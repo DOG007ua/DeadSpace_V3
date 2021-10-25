@@ -7,6 +7,7 @@ public class InputClick : MonoBehaviour
 {
     public event Action<InfoClick> EventClickRight;
     public event Action<InfoClick> EventClickLeft;
+    public InfoClick InfoMousePosition = new InfoClick(Vector3.zero, null, null);
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class InputClick : MonoBehaviour
     }
 
     private void ClickMouse()
-    {
+    {        
         if (Input.GetMouseButtonDown(0))
         {
             var info = Click();
@@ -31,6 +32,16 @@ public class InputClick : MonoBehaviour
             var info = Click();
             EventClickRight?.Invoke(info);
         }
+
+        InfoMouse();
+    }
+
+    void InfoMouse()
+    {
+        var info = Click();
+        InfoMousePosition.GameObjectClick = info.GameObjectClick;
+        InfoMousePosition.PositionClick = info.PositionClick;
+        InfoMousePosition.Unit = info.Unit;
     }
 
     private InfoClick Click()
