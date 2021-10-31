@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Bootstrap.cs" />
     <Compile Include="Assets\Scripts\Monobeh\ControllerCamera.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\TestPosition.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Blue\BlueTeam.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Blue\Soldier.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\GunFeature.cs" />
