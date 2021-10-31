@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Classes\Gun\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Classes\Other\ExtentionFile.cs" />
     <Compile Include="Assets\Scripts\Classes\Other\IComponent.cs" />
+    <Compile Include="Assets\Scripts\Classes\Other\Point.cs" />
     <Compile Include="Assets\Scripts\Classes\Other\TeamUnit.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\IControlerTarget.cs" />
     <Compile Include="Assets\Scripts\Classes\Unit\Interface\IMove.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="Assets\Scripts\InputController\InputClick.cs" />
     <Compile Include="Assets\Scripts\InputController\InputController.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Bootstrap.cs" />
+    <Compile Include="Assets\Scripts\Monobeh\ControllerCamera.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Blue\BlueTeam.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Blue\Soldier.cs" />
     <Compile Include="Assets\Scripts\Monobeh\Unit\Feature\GunFeature.cs" />
