@@ -10,13 +10,26 @@ public class ControllerCamera : MonoBehaviour
     private float speedCamera;
     private Vector3 pointMove;
     BorderCamera borderCamera;
-
+    private bool isActive = false;
 
     // Update is called once per frame
     void Update()
     {
+        KeyDown();
+        if (!isActive) return;
+              
         SetDirectionMoveCamera();
         MoveCamera();
+    }
+
+    private void KeyDown()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isActive = !isActive;
+            Debug.Log(isActive);
+        }
+            
     }
 
      void Start()
