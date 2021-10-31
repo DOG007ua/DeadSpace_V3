@@ -8,7 +8,7 @@ public class TestPosition : MonoBehaviour
     public Vector2 direction;
     public float X;
     public float Y;
-
+    public float angle;
     public RectTransform arrow;
 
 
@@ -39,10 +39,10 @@ public class TestPosition : MonoBehaviour
     {
         position = Camera.main.WorldToScreenPoint(transform.position);
         var visible = IsVisible(position);
-        /*if (!visible)
+        if (!visible)
         {
             PositionArrow(position);
-        }*/
+        }
         PositionArrow(position);
         IsVisibleNow = visible;
     }
@@ -59,9 +59,20 @@ public class TestPosition : MonoBehaviour
     private void PositionArrow(Vector3 selectUnit)
     {
         var positionUnit = new Vector2(selectUnit.x, selectUnit.y);
-        direction = (centerScreen - positionUnit).normalized;
+        direction = (centerScreen - positionUnit).normalized * -1;
         var x = radius * direction.x;
         var y = radius * direction.y;
-        arrow.localPosition = new Vector3(-x, -y, 0);
+        arrow.localPosition = new Vector3(x, y, 0);
+        arrow.rotation = Quaternion.Euler(0, 0, GetAngle(direction));
+    }
+
+    private float GetAngle(Vector2 direction)
+    {
+        angle = Vector2.Angle(Vector2.down, new Vector2(direction.x, -direction.y));
+        if(direction.x > 0)
+        {
+            angle = 360 - angle;
+        }
+        return angle;
     }
 }
